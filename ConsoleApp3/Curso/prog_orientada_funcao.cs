@@ -8,7 +8,7 @@ namespace Curso.Curso
 {
     class ProgOrientadaFuncao
     {
-        public static void Main(string[] args)
+        public void Main(string[] args)
         {
             FunçaoOrientada();
         }
