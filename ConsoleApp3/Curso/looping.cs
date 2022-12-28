@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Curso.Curso
 {
-    internal class looping
+     class looping
     {
 
         public void Main(string[] args)

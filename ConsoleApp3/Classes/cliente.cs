@@ -12,10 +12,35 @@ namespace ConsoleApp3.Classes
     {
         public static void Main(string[] args)
         {
-
             var clientes = LerClientes();
 
+            var cliente = new Cliente();
+            cliente.Nome = "Nathan";
+            cliente.Telefone = "9414194901941";
+            cliente.CPF = "9414194901941";
+
+            foreach(Cliente c in clientes)
+            {
+                Console.WriteLine(c.Nome);
+            }
+
+            
         }
+
+        public Cliente(string Nome) {
+            this.Nome = Nome;
+        }
+
+        public Cliente(int Telefone)
+        {
+            this.Telefone = Telefone.ToString();
+        }
+
+        public Cliente()
+        {
+
+        }
+
 
         public string Nome;
         public string Telefone;
@@ -28,7 +53,20 @@ namespace ConsoleApp3.Classes
 
         public void Gravar()
         {
-            // forget //
+            var clientes = LerClientes();
+            clientes.Add(this);
+            if (File.Exists(caminhoBaseClientes()))
+            {
+                string conteudo = "Nome;Telefone;CPF;\n";
+                foreach(Cliente c in clientes)
+                {
+                    conteudo += c.Nome + ";" + c.Telefone + ";" + c.CPF + ";\n";
+                }
+
+                File.WriteAllText(caminhoBaseClientes(), conteudo);
+            };
+
+
         }
         public static List<Cliente> LerClientes()
         {
@@ -45,10 +83,10 @@ namespace ConsoleApp3.Classes
                         if (i == 1) continue;
                         var clienteArquivo = linha.Split(';');
 
-                        var cliente = new Cliente();
-                        cliente.Nome = clienteArquivo[0];
-                        cliente.Telefone = clienteArquivo[1];
-                        cliente.CPF = clienteArquivo[2];
+                        var cliente = new Cliente {
+                            Nome = clienteArquivo[0], 
+                            Telefone = clienteArquivo[1], 
+                            CPF = clienteArquivo[2] };
 
                         clientes.Add(cliente);
                     }
