@@ -12,7 +12,7 @@ namespace Curso.Curso
         {
             CalcularInt();
             CalcularVoid();
-            Tabuada(5);
+            Tabuada();
             
         }
         public static int CalcularInt() // Função int necessita de um "return" -
@@ -30,10 +30,11 @@ namespace Curso.Curso
             Console.WriteLine(CalcularInt());
         }
 
-        public static void Tabuada(int numero) // Função criada sem repetir o codigo só chamando na Main
+        public static void Tabuada() // Função criada sem repetir o codigo só chamando na Main
                                                // com o valor que quiser
         {
-            Console.WriteLine("=======");
+            Console.WriteLine("Escolha o numero da tabuada");
+            int numero = int.Parse(Console.ReadLine());
             for (int i = 1; i <= 10; i++)
             {
                 Console.WriteLine(numero + " X " + i + " = " + (numero * i));

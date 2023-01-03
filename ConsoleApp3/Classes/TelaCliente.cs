@@ -12,9 +12,10 @@ namespace ConsoleApp3.Classes
         {
 
 
-        Console.WriteLine("================== cadastro de cliente ===================");
+            Console.WriteLine("================== cadastro de cliente ===================");
 
-        while(true) {
+            while (true)
+            {
 
 
                 string mensagem =
@@ -45,21 +46,26 @@ namespace ConsoleApp3.Classes
 
                     cliente.Gravar();
                 }
-                else 
+                else
                 {
                     var verClientes = Cliente.LerClientes();
 
                     foreach (Cliente c in verClientes)
                     {
                         Console.WriteLine(c.Nome);
+                        Console.WriteLine(c.Telefone);
+                        Console.WriteLine(c.CPF);
+                        Console.WriteLine("=================");
+                    }
+
+
+                    var clientes = Cliente.LerClientes();
+
+                    foreach (Cliente c in clientes)
+                    {
+                        Console.WriteLine(c.Nome);
                     }
                 }
-
-
-                var clientes = Cliente.LerClientes();
-
-                foreach(Cliente c in clientes){
-                Console.WriteLine(c.Nome);}
             }
         }
     }

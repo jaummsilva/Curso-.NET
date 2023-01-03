@@ -51,9 +51,7 @@ namespace Curso.Curso
                 else if (valor == TABUADA)
                 {
                     Console.WriteLine("====================== opçao tabuada ================");
-                    Console.WriteLine("Digite o numero que deseja na tabuada");
-                    int numero = int.Parse(Console.ReadLine());
-                    funcoes.Tabuada(numero);
+                    funcoes.Tabuada();
                     Console.WriteLine("======================================");
                 }
                 else if (valor == CALCULO_MEDIA)
