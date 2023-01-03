@@ -21,15 +21,16 @@ namespace ConsoleApp3.Classes
             cliente.Telefone = "9414194901941";
             cliente.CPF = "9414194901941";
 
-            foreach(Cliente c in clientes)
+            foreach (Cliente c in clientes)
             {
                 Console.WriteLine(c.Nome);
             }
 
-            
+
         }
 
-        public Cliente(string Nome) {
+        public Cliente(string Nome)
+        {
             this.Nome = Nome;
         }
 
@@ -52,45 +53,22 @@ namespace ConsoleApp3.Classes
         {
             return ConfigurationManager.AppSettings["base_clientes"];
         }
-        private static string caminhoBaseUsuarios()
+        public virtual void Gravar()
         {
-            return ConfigurationManager.AppSettings["base_usuarios"];
-        }
 
-        public void Gravar()
-        {
-            if(this.GetType() == typeof(Cliente))
+            var clientes = LerClientes();
+            clientes.Add(this);
+            if (File.Exists(caminhoBaseClientes()))
             {
-                var clientes = LerClientes();
-                clientes.Add(this);
-                if (File.Exists(caminhoBaseClientes()))
+                string conteudo = "Nome;Telefone;CPF;\n";
+                foreach (Cliente c in clientes)
                 {
-                    string conteudo = "Nome;Telefone;CPF;\n";
-                    foreach (Cliente c in clientes)
-                    {
-                        conteudo += c.Nome + ";" + c.Telefone + ";" + c.CPF + ";\n";
-                    }
+                    conteudo += c.Nome + ";" + c.Telefone + ";" + c.CPF + ";\n";
+                }
 
-                    File.WriteAllText(caminhoBaseClientes(), conteudo);
-                };
-
+                File.WriteAllText(caminhoBaseClientes(), conteudo);
             }
-            else
-            {
-                var usuario  = Usuario.LerUsuarios();
-                Usuario u = new Usuario(this.Nome, this.Telefone, this.CPF);
-                usuario.Add(u);
-                if (File.Exists(caminhoBaseUsuarios()))
-                {
-                    string conteudo = "Nome;Telefone;CPF;\n";
-                    foreach (Usuario c in usuario)
-                    {
-                        conteudo += c.Nome + ";" + c.Telefone + ";" + c.CPF + ";\n";
-                    }
 
-                    File.WriteAllText(caminhoBaseClientes(), conteudo);
-                };
-            }
         }
         public static List<Cliente> LerClientes()
         {
@@ -107,44 +85,19 @@ namespace ConsoleApp3.Classes
                         if (i == 1) continue;
                         var clienteArquivo = linha.Split(';');
 
-                        var cliente = new Cliente {
-                            Nome = clienteArquivo[0], 
-                            Telefone = clienteArquivo[1], 
-                            CPF = clienteArquivo[2] };
+                        var cliente = new Cliente
+                        {
+                            Nome = clienteArquivo[0],
+                            Telefone = clienteArquivo[1],
+                            CPF = clienteArquivo[2]
+                        };
 
                         clientes.Add(cliente);
                     }
                 }
             }
-                return clientes;
+            return clientes;
 
-            }
-        public static List<Usuario> LerUsuarios()
-        {
-            var usuarios = new List<Usuario>();
-            if (File.Exists(caminhoBaseUsuarios())) // Verificando se existe a variavel acima (diretório do arquivo no pc) //
-            {
-                using (StreamReader arquivo = File.OpenText(caminhoBaseUsuarios()))
-                {
-                    string linha;
-                    int i = 0;
-                    while ((linha = arquivo.ReadLine()) != null) // Looping lendo cada linha do arquivo //
-                    {
-                        i++;
-                        if (i == 1) continue;
-                        var usuarioArquivo = linha.Split(';');
-
-                        var usuario = new Usuario
-                        {
-                            Nome = usuarioArquivo[0],
-                            Telefone = usuarioArquivo[1],
-                            CPF = usuarioArquivo[2]
-                        };
-                         
-                        usuarios.Add(usuario);
-                    }
-                }
-            }
-            return usuarios;
         }
     }
+}
