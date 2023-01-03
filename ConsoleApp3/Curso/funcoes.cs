@@ -8,13 +8,12 @@ namespace Curso.Curso
 {
     class funcoes
     {
-        public void Main(string[] args)
+        public  void Main(string[] args)
         {
             CalcularInt();
             CalcularVoid();
-            Tabuada(9);
-            Tabuada(10);
             Tabuada(5);
+            
         }
         public static int CalcularInt() // Função int necessita de um "return" -
                                         // obs: não mostra na tela (Console)  

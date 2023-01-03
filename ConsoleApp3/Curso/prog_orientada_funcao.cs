@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp3.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Curso.Curso
 {
     class ProgOrientadaFuncao
     {
-        public void Main(string[] args)
+        public static void Main(string[] args)
         {
             FunçaoOrientada();
         }
@@ -16,6 +17,8 @@ namespace Curso.Curso
         public const int LER_ARQUIVOS = 1;
         public const int TABUADA = 2;
         public const int CALCULO_MEDIA = 3;
+        public const int CADASTRAR_CLIENTES = 4;
+
 
         // Função utilizando 3 funções criadas anteriormente em outros arquivos //
         public static void FunçaoOrientada()
@@ -29,7 +32,9 @@ namespace Curso.Curso
                     "\n0 -  Sair do programa" +
                     "\n1 -  Para ler arquivos:" +
                     "\n2 -  Para executar a tabuada" +
-                    "\n3 -  Calcular média de alunos";
+                    "\n3 -  Calcular média de alunos" +
+                    "\n4 -  Cadastrar clientes";
+
                 Console.WriteLine(mensagem);
                 int valor = int.Parse(Console.ReadLine());
 
@@ -54,6 +59,11 @@ namespace Curso.Curso
                 else if (valor == CALCULO_MEDIA)
                 {
                     CalcularMediaAluno();
+                    Console.WriteLine("======================================");
+                }
+                else if (valor == CADASTRAR_CLIENTES)
+                {
+                    TelaCliente.Chamar();
                     Console.WriteLine("======================================");
                 }
                 else

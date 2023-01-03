@@ -10,8 +10,10 @@ namespace ConsoleApp3.Classes
 {
     public class Cliente
     {
-        public static void Main(string[] args)
+        public void Main(string[] args)
         {
+            TelaCliente.Chamar();
+
             var clientes = LerClientes();
 
             var cliente = new Cliente();

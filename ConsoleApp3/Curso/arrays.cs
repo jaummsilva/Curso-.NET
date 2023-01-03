@@ -35,16 +35,21 @@ namespace Curso.Curso
             List<string> a = new List<string>(); // Crie um Collection //
             a.Add("Nissan"); // Adiciona Nissan a Collection // 
             a.Add("Toyota"); // "" // 
-            a.Add("Jeep");   // "" // 
+            a.Add("Jeep");   // "" //
+            a.Add("Kia");
 
             foreach (string b in a) // Percorrendo cada valor de a //  
             {
                 Console.WriteLine(b); // Mostrando os valores de a //
             }
 
-            if (a.Exists(e => e == "Nissan")) // Verificando se existe o nome nissan no Collection // 
+            if (a.Exists(e => e == "Chevrolet")) // Verificando se existe o nome nissan no Collection // 
             {
-                Console.WriteLine("Encontrei o nome Nissan no Collection");
+                Console.WriteLine("Encontrei o nome Chevrolet no Collection");
+            }
+            else
+            {
+                Console.WriteLine("Não Encontrei o Chevrolet");
             }
         }
 

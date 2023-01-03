@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Cliente.cs" />
+    <Compile Include="Classes\TelaCliente.cs" />
     <Compile Include="Curso\arrays.cs" />
     <Compile Include="Curso\condicionais.cs" />
     <Compile Include="Curso\constante.cs" />
