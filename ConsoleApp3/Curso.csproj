@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Classes\TelaCliente.cs" />
+    <Compile Include="Classes\Usuario.cs" />
     <Compile Include="Curso\arrays.cs" />
     <Compile Include="Curso\condicionais.cs" />
     <Compile Include="Curso\constante.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Curso\looping.cs" />
     <Compile Include="Curso\prog_orientada_funcao.cs" />
     <Compile Include="Curso\tiposVariaveis.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

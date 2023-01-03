@@ -9,10 +9,6 @@ namespace Curso.Curso
 {
     class ProgOrientadaFuncao
     {
-        public static void Main(string[] args)
-        {
-            FunçaoOrientada();
-        }
         public const int SAIDA_PROGRAMA = 0;
         public const int LER_ARQUIVOS = 1;
         public const int TABUADA = 2;
