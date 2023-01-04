@@ -34,36 +34,26 @@ namespace ConsoleApp3.Classes
                 }
                 else if (valor == 1)
                 {
-                    var cliente = new Cliente();
+                    var b = new Cliente();
                     Console.WriteLine("Digite o nome do Cliente");
-                    cliente.Nome = Console.ReadLine();
+                    b.Nome = Console.ReadLine();
 
                     Console.WriteLine("Digite o telefone do Cliente");
-                    cliente.Telefone = Console.ReadLine();
+                    b.Telefone = Console.ReadLine();
 
                     Console.WriteLine("Digite o CPF do Cliente");
-                    cliente.CPF = Console.ReadLine();
+                    b.CPF = Console.ReadLine();
 
-                    cliente.Gravar();
+                    b.Gravar();
                 }
                 else
                 {
-                    var verClientes = Cliente.LerClientes();
-
-                    foreach (Cliente c in verClientes)
+                  foreach (Cliente c in new Cliente().Ler())
                     {
                         Console.WriteLine(c.Nome);
                         Console.WriteLine(c.Telefone);
                         Console.WriteLine(c.CPF);
                         Console.WriteLine("=================");
-                    }
-
-
-                    var clientes = Cliente.LerClientes();
-
-                    foreach (Cliente c in clientes)
-                    {
-                        Console.WriteLine(c.Nome);
                     }
                 }
             }
