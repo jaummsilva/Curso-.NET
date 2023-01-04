@@ -12,6 +12,12 @@ namespace ConsoleApp3
     {
         public static void Main(string[] args)
         {
+            var c = new Cachorro();
+            c.Idade = 1;
+            Console.WriteLine(c.Idade);
+            
+            Console.WriteLine(c.idade2);    
+
             ProgOrientadaFuncao.FunçaoOrientada();
                    
         }
