@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Classes
 {
-    public class Base : IPessoa
+    public abstract class Base : IPessoa
     {
         public Base(string nome, string telefone, string cpf)
         {
@@ -80,7 +80,7 @@ namespace ConsoleApp3.Classes
             {
                 string conteudo = "Nome;Telefone;CPF;\n";
                 foreach (Base b in dados)
-                {
+                { 
                     conteudo += b.Nome + ";" + b.Telefone + ";" + b.CPF + ";\n";
                 }
 
