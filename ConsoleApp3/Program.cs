@@ -11,15 +11,24 @@ namespace ConsoleApp3
     class Program
     {
         public static void Main(string[] args)
-        {
-            var c = new Cachorro();
-            c.Idade = 1;
-            Console.WriteLine(c.Idade);
-            
-            Console.WriteLine(c.idade2);    
+        {     
 
-            ProgOrientadaFuncao.FunçaoOrientada();
-                   
+            ProgOrientadaFuncao.FunçaoOrientada();                 
         }
+        partial class Animal
+        {
+            public string teste;
+            partial void tt();
+        }
+        partial class Animal
+        {
+            public string teste2;
+            partial void tt()
+            {
+                Console.WriteLine("teste");
+            }
+        }
+
+
     }
 }
