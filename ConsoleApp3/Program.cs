@@ -12,15 +12,8 @@ namespace ConsoleApp3
     {
         public static void Main(string[] args)
         {
-            Email.Instancia.Corpo = "bla bla bla";
-            Email.Instancia.Titulo = "Titulo do Email";
-            Email.Instancia.Destino = "Destinodo@Email.com";
-            Email.Instancia.Origin = "Origindo@Email.com";
-
-            Email.Instancia.EnviarEmail();
-            
-
-            ProgOrientadaFuncao.FunçaoOrientada();                 
+                    
+             ProgOrientadaFuncao.FunçaoOrientada();                 
         }
     }
 }

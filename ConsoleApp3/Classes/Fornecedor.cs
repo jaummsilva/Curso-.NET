@@ -8,38 +8,25 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Classes
 {
-    public abstract class Base : IPessoa
+    public class Fornecedor : Base
     {
-        public Base(string nome, string telefone, string cpf)
+        public string CNPJ;
+        public Fornecedor(string nome, string telefone, string cpf, string cnpj)
         {
 
             this.Nome = nome;
             this.Telefone = telefone;
             this.CPF = cpf;
+            this.CNPJ = cnpj;
         }
-        public Base()
-        { }
+        public Fornecedor(){ }
 
-
-
-
-        public string Nome;
-        public string Telefone;
-        public string CPF;
-
-        public  void SetNome(string nome)
+        private string diretorio()
         {
-            this.Nome = nome;
+            return ConfigurationManager.AppSettings["caminho_arquivos"] + this.GetType().Name + ".txt";
         }
-        public void SetTelefone(string telefone)
-        {
-            this.Telefone= telefone;
-        }
-        public void SetCPF(string cpf)
-        {
-            this.CPF = cpf;
-        }
-        public virtual List<IPessoa> Ler()
+
+        public override List<IPessoa> Ler()
         {
             var dados = new List<IPessoa>();
             if (File.Exists(diretorio())) // Verificando se existe a variavel acima (diretório do arquivo no pc) //
@@ -53,10 +40,11 @@ namespace ConsoleApp3.Classes
                         i++;
                         if (i == 1) continue;
                         var baseArquivo = linha.Split(';');
-                        var b = (IPessoa)Activator.CreateInstance(this.GetType());
+                        var b = (Fornecedor)Activator.CreateInstance(this.GetType());
                         b.SetNome(baseArquivo[0]);
                         b.SetTelefone(baseArquivo[1]);
                         b.SetCPF(baseArquivo[2]);
+                        b.CNPJ = baseArquivo[3];
                         dados.Add(b);
                     }
                 }
@@ -65,27 +53,20 @@ namespace ConsoleApp3.Classes
 
         }
 
-        private string diretorio()
+        public override void Gravar()
         {
-            return ConfigurationManager.AppSettings["caminho_arquivos"] + this.GetType().Name + ".txt";
-        }
-
-        public virtual void Gravar()
-        {
-
             var dados = this.Ler();
             dados.Add(this);
             if (File.Exists(diretorio()))
             {
-                string conteudo = "Nome;Telefone;CPF;\n";
-                foreach (Base b in dados)
-                { 
-                    conteudo += b.Nome + ";" + b.Telefone + ";" + b.CPF + ";\n";
+                string conteudo = "Nome;Telefone;CPF;CNPJ;\n";
+                foreach (Fornecedor b in dados)
+                {
+                    conteudo += b.Nome + ";" + b.Telefone + ";" + b.CPF + ";" + b.CNPJ + ";\n";
                 }
 
                 File.WriteAllText(diretorio(), conteudo);
             }
-                
         }
     }
 }

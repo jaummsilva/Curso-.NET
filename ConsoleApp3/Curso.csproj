@@ -50,7 +50,10 @@
     <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Classes\Email.cs" />
     <Compile Include="Classes\IPessoa.cs" />
+    <Compile Include="Classes\TelaFornecedor.cs" />
+    <Compile Include="Classes\TelaUsuario.cs" />
     <Compile Include="Classes\TelaCliente.cs" />
+    <Compile Include="Classes\Fornecedor.cs" />
     <Compile Include="Classes\Usuario.cs" />
     <Compile Include="Curso\arrays.cs" />
     <Compile Include="Curso\condicionais.cs" />

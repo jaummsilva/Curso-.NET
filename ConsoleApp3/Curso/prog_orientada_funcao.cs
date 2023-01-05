@@ -14,6 +14,8 @@ namespace Curso.Curso
         public const int TABUADA = 2;
         public const int CALCULO_MEDIA = 3;
         public const int CADASTRAR_CLIENTES = 4;
+        public const int CADASTRAR_USUARIOS = 5;
+        public const int CADASTRAR_FORNECEDORES = 6;
 
 
         // Função utilizando 3 funções criadas anteriormente em outros arquivos //
@@ -21,7 +23,8 @@ namespace Curso.Curso
         {
             while (true)
             {
-                string mensagem = "Olá usuario, bem vindo ao programa, utilizando programação funcional" +
+                string mensagem = "Olá usuario, bem vindo ao programa\n" +
+                    "\n   Aplicação Console final" +
                     "\n" +
                     "\nDigite uma das opçoes abaixo:" +
                     "\n" +
@@ -29,7 +32,9 @@ namespace Curso.Curso
                     "\n1 -  Para ler arquivos:" +
                     "\n2 -  Para executar a tabuada" +
                     "\n3 -  Calcular média de alunos" +
-                    "\n4 -  Cadastrar clientes";
+                    "\n4 -  Cadastrar clientes" + 
+                    "\n5 -  Cadastrar usuarios" +
+                    "\n6 -  Cadastrar fornecedores";
 
                 Console.WriteLine(mensagem);
                 int valor = int.Parse(Console.ReadLine());
@@ -55,9 +60,19 @@ namespace Curso.Curso
                     CalcularMediaAluno();
                     Console.WriteLine("======================================");
                 }
-                else if (valor == CADASTRAR_CLIENTES)
+                else if  (valor == CADASTRAR_CLIENTES)
                 {
                     TelaCliente.Chamar();
+                    Console.WriteLine("======================================");
+                }
+                else if (valor == CADASTRAR_USUARIOS)
+                {
+                    TelaUsuario.Chamar();
+                    Console.WriteLine("======================================");
+                }
+                else if (valor == CADASTRAR_FORNECEDORES)
+                {
+                    TelaFornecedor.Chamar();
                     Console.WriteLine("======================================");
                 }
                 else
